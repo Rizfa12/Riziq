@@ -18,3 +18,16 @@ exports.tampil = function(req,res) {
         }
     });
 };
+
+// menampilkan semua data
+exports.tampilId = function(req,res){
+    let id = req.params.id;
+    connection.query('SELECT * FROM riziq WHERE id = ?', [id],
+    function(error, rows, fileds){
+        if(error){
+                connection.log(error);
+        }else{
+            response.ok(rows, res);
+        }
+    });
+};
